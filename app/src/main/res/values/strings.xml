@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">EmogiTakeHomeAssignment</string>
+    <string name="hint_first_name">Enter Query Here</string>
+</resources>
