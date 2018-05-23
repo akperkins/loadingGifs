@@ -9,8 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.perkinsa.emogitakehomeassignment.BuildConfig
 import com.example.perkinsa.emogitakehomeassignment.R
-import com.example.perkinsa.emogitakehomeassignment.models.Item
 import com.example.perkinsa.emogitakehomeassignment.ui.extensions.loadImage
+import com.example.presentation.Item
 import org.jetbrains.anko.startActivity
 
 /**

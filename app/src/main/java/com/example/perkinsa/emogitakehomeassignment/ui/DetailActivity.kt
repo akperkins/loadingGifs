@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import com.example.perkinsa.emogitakehomeassignment.R
-import com.example.perkinsa.emogitakehomeassignment.models.Item
 import com.example.perkinsa.emogitakehomeassignment.ui.extensions.loadImage
+import com.example.presentation.Item
 
 /**
  * This [AppCompatActivity] is responsible for showing the detail view for any

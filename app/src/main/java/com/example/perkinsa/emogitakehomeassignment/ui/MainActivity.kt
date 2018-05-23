@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.example.data.AssetFilesRepository
+import com.example.data.AssetsReader
 import com.example.perkinsa.emogitakehomeassignment.R
-import com.example.perkinsa.emogitakehomeassignment.data.AssetFilesRepository
-import com.example.perkinsa.emogitakehomeassignment.data.AssetsReader
-import com.example.perkinsa.emogitakehomeassignment.models.Item
+import com.example.presentation.Contract
+import com.example.presentation.Item
+import com.example.presentation.MainPresenter
 import com.jakewharton.rxbinding2.widget.RxTextView
 
 /**
