@@ -1,7 +1,5 @@
-package com.example.perkinsa.emogitakehomeassignment.ui
+package com.example.presentation
 
-import com.example.perkinsa.emogitakehomeassignment.data.Repository
-import com.example.perkinsa.emogitakehomeassignment.models.Item
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.capture
 import com.nhaarman.mockito_kotlin.mock
@@ -29,7 +27,7 @@ class MainPresenterTest {
 
     val view: Contract.View = mock()
 
-    val repository: Repository = mock()
+    val repository: DataStore = mock()
 
     @Rule
     @JvmField

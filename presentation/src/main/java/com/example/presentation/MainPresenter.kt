@@ -32,7 +32,7 @@ class MainPresenter(var view: Contract.View?, val repository: DataStore) : Contr
     private fun displayListOfTermsForQuery(searchQuery: CharSequence?) {
         val queryText = searchQuery.toString().toLowerCase()
         val query = queryText.split(" ")
-        var itemsToDisplay = if (queryText.isBlank() || query.isEmpty()) {
+        val itemsToDisplay = if (queryText.isBlank() || query.isEmpty()) {
             currentItems
         } else {
             val filteredList = currentItems.filter { it.hasTag(query) }
