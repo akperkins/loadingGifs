@@ -6,7 +6,7 @@ import android.content.Context
  * This class is responsible for reading in the contents of a file located in the Assets folder as
  * a [String].
  */
-open class AssetsReader(val context:Context) {
+open class AssetsReader(private val context:Context) {
     open fun readFileAsString(fileName: String): String? {
         val inputStream = context.assets.open(fileName)
         val size = inputStream.available()

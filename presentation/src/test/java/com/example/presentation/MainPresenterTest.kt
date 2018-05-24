@@ -1,16 +1,15 @@
 package com.example.presentation
 
-import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.capture
 import com.nhaarman.mockito_kotlin.mock
-import com.nhaarman.mockito_kotlin.never
 import com.nhaarman.mockito_kotlin.verify
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Observable
 import io.reactivex.android.plugins.RxAndroidPlugins
 import io.reactivex.plugins.RxJavaPlugins
 import io.reactivex.schedulers.Schedulers
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -25,9 +24,9 @@ import org.mockito.junit.MockitoJUnit
 
 class MainPresenterTest {
 
-    val view: Contract.View = mock()
+    private val view: Contract.View = mock()
 
-    val repository: DataStore = mock()
+    private val repository: DataStore = mock()
 
     @Rule
     @JvmField
@@ -38,9 +37,10 @@ class MainPresenterTest {
     var testSchedulerRule = RxImmediateSchedulerRule()
 
     @Captor
+    private
     lateinit var captor: ArgumentCaptor<List<Item>>
 
-    val testSubject = MainPresenter(view, repository)
+    private val testSubject = MainPresenter(view, repository)
 
     @Before
     fun setUp() {

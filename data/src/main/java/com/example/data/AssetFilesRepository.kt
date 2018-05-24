@@ -13,7 +13,7 @@ const val JSON_FILE_NAME = "contents.json"
  * JSON file stored at [JSON_FILE_NAME].
  *
  */
-class AssetFilesRepository(val assetsReader: AssetsReader) : Repository, DataStore {
+class AssetFilesRepository(private val assetsReader: AssetsReader) : Repository, DataStore {
 
     override fun loadItems(): Observable<List<Item>> {
         val jsonStr = assetsReader.readFileAsString(JSON_FILE_NAME)

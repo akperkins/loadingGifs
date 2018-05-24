@@ -1,11 +1,8 @@
 package com.example.perkinsa.emogitakehomeassignment.data
 
-import android.content.Context
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.whenever
-import org.junit.Assert.*
-import org.junit.Before
 import org.junit.Ignore
 import org.junit.Test
 
@@ -13,9 +10,9 @@ const val TEST_JSON = "{\n  \"contents\": {\n    \"1CTQNP6\": {\n      \"content
 
 class AssetFilesRepositoryTest{
 
-    val assetsReader:AssetsReader = mock()
+    private val assetsReader:AssetsReader = mock()
 
-    val testSubject = AssetFilesRepository(assetsReader)
+    private val testSubject = AssetFilesRepository(assetsReader)
 
     @Test
     @Ignore("Valuable test, just too much time to separate from Android SDK dependency")

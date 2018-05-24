@@ -5,11 +5,11 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 /**
- * This class is responsible for housing the business logic of the [MainActivity].
+ * This class is responsible for housing the business logic for the Main Screen.
  */
-class MainPresenter(var view: Contract.View?, val repository: DataStore) : Contract.Presenter {
+class MainPresenter(var view: Contract.View?, private val repository: DataStore) : Contract.Presenter {
 
-    var subscription: Disposable? = null
+    private var subscription: Disposable? = null
 
     var currentItems = emptyList<Item>()
 

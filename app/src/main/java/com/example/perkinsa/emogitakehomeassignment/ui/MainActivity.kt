@@ -2,13 +2,10 @@ package com.example.perkinsa.emogitakehomeassignment.ui
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import com.example.data.AssetFilesRepository
 import com.example.data.AssetsReader
 import com.example.perkinsa.emogitakehomeassignment.R
 import com.example.presentation.Contract
-import com.example.presentation.Item
 import com.example.presentation.MainPresenter
 import com.jakewharton.rxbinding2.widget.RxTextView
 
@@ -16,28 +13,21 @@ import com.jakewharton.rxbinding2.widget.RxTextView
  * This [AppCompatActivity] is responsible for being the Main Entry of the application and the
  * view of the main screen.
  */
-class MainActivity : AppCompatActivity(), Contract.View {
+class MainActivity : AppCompatActivity() {
 
     private var preseneter: Contract.Presenter? = null
 
-    private var recyclerView: RecyclerView? = null
-
-    private var itemAdapter: ItemAdapter = ItemAdapter(emptyList())
-
     private var currentSearchQuery: String = ""
+
+    lateinit var view: MainView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val repository = AssetFilesRepository(AssetsReader(applicationContext))
-        preseneter = MainPresenter(this, repository)
-
-        val viewManager = LinearLayoutManager(this)
-
-        recyclerView = findViewById<RecyclerView>(R.id.my_recycler_view).apply {
-            layoutManager = viewManager
-            adapter = itemAdapter
-        }
+        view = MainView()
+        preseneter = MainPresenter(view, repository)
+        view.init(this)
 
         savedInstanceState?.let{
             currentSearchQuery = it.getString(CURRENT_SEARCH_KEY, "")
@@ -65,10 +55,6 @@ class MainActivity : AppCompatActivity(), Contract.View {
             it.unbind()
             preseneter = null
         }
-    }
-
-    override fun displayItems(items: List<Item>) {
-        itemAdapter.updateItems(items)
     }
 
     companion object {
