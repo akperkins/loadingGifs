@@ -5,4 +5,4 @@ package com.example.data
  * in, irregardless of how we will use the class in terms of the app business logic.
  *
  */
-data class AssetDto(val asset_id: String, val url: String, val file_extension: String, val size: String)
+internal data class AssetDto(val asset_id: String, val url: String, val file_extension: String, val size: String)

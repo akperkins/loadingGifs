@@ -5,4 +5,4 @@ package com.example.data
  * in, irregardless of how we will use the class in terms of the app business logic.
  *
  */
-data class ItemDto(val content_id: String, val assets: List<AssetDto>, val tags: List<String>)
+internal data class ItemDto(val content_id: String, val assets: List<AssetDto>, val tags: List<String>)

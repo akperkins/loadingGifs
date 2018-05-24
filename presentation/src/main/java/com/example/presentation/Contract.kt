@@ -11,7 +11,7 @@ interface Contract {
      */
     interface View {
         /**
-         * Called to indicate the [List] of [ItemDto] to display.
+         * Called to indicate the [List] of [Item] to display.
          */
         fun displayItems(items: List<Item>)
     }
