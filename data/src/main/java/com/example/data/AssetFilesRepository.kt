@@ -13,10 +13,18 @@ const val JSON_FILE_NAME = "contents.json"
  * JSON file stored at [JSON_FILE_NAME].
  *
  */
-class AssetFilesRepository(private val assetsReader: AssetsReader) : Repository, DataStore {
+class AssetFilesRepository(private val assetsReader: AssetsReader?) : Repository, DataStore {
+    private var testJson: String? = null
+
+    /**
+     * This method is a part of the Testing API. Should not be used for production code.
+     */
+    internal fun setJson(str: String){
+        testJson = str
+    }
 
     override fun loadItems(): Observable<List<Item>> {
-        val jsonStr = assetsReader.readFileAsString(JSON_FILE_NAME)
+        val jsonStr = testJson ?: assetsReader!!.readFileAsString(JSON_FILE_NAME)
         val contents = JSONObject(jsonStr)
         val itemsJson = JSONObject(contents["contents"].toString())
         val keys = itemsJson.keys()

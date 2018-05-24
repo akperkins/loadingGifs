@@ -1,6 +1,7 @@
-package com.example.perkinsa.emogitakehomeassignment.models
+package com.example.presentation
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotEquals
 import org.junit.Test
 
 class ItemTest{
