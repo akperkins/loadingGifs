@@ -63,7 +63,7 @@ class MainPresenterTest {
         )
         testSubject.currentItems = list
         testSubject.textChanged("joyful")
-        verify(view).displayItems(capture(captor))
+        verify(view).render(capture(captor))
         assertEquals(captor.value, list)
     }
 
@@ -75,7 +75,7 @@ class MainPresenterTest {
         )
         testSubject.currentItems = list
         testSubject.textChanged("bun")
-        verify(view).displayItems(capture(captor))
+        verify(view).render(capture(captor))
         assertEquals(captor.value, emptyList<Item>())
     }
 
@@ -87,7 +87,7 @@ class MainPresenterTest {
         )
         testSubject.currentItems = list
         testSubject.textChanged("")
-        verify(view).displayItems(capture(captor))
+        verify(view).render(capture(captor))
         assertEquals(captor.value, list)
     }
 
@@ -99,7 +99,7 @@ class MainPresenterTest {
         )
         testSubject.currentItems = list
         testSubject.textChanged("   ")
-        verify(view).displayItems(capture(captor))
+        verify(view).render(capture(captor))
         assertEquals(captor.value, list)
     }
 
@@ -113,7 +113,7 @@ class MainPresenterTest {
         whenever(repository.loadItems()).thenReturn(Observable.just(list))
 
         testSubject.loadData()
-        verify(view).displayItems(capture(captor))
+        verify(view).render(capture(captor))
         assertEquals(captor.value, list)
     }
 
@@ -129,7 +129,7 @@ class MainPresenterTest {
         whenever(repository.loadItems()).thenReturn(Observable.just(list))
 
         testSubject.loadData("ghost")
-        verify(view).displayItems(capture(captor))
+        verify(view).render(capture(captor))
         assertEquals(captor.value, listOf(ghost))
     }
 

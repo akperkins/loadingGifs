@@ -38,7 +38,7 @@ class MainPresenter(var view: Contract.View?, private val repository: DataStore)
             val filteredList = currentItems.filter { it.hasTag(query) }
             filteredList
         }
-        view?.displayItems(itemsToDisplay)
+        view?.render(MainViewState(itemsToDisplay))
     }
 
     override fun unbind() {

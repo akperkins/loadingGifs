@@ -13,7 +13,7 @@ interface Contract {
         /**
          * Called to indicate the [List] of [Item] to display.
          */
-        fun displayItems(items: List<Item>)
+        fun render(state: MainViewState)
     }
 
     /**
