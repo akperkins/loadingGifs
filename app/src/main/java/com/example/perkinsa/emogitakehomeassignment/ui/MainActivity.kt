@@ -7,7 +7,6 @@ import com.example.data.AssetsReader
 import com.example.perkinsa.emogitakehomeassignment.R
 import com.example.presentation.Contract
 import com.example.presentation.MainPresenter
-import com.jakewharton.rxbinding2.widget.RxTextView
 
 /**
  * This [AppCompatActivity] is responsible for being the Main Entry of the application and the
@@ -36,12 +35,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        preseneter?.loadData(currentSearchQuery)
-        RxTextView.textChanges(findViewById(R.id.searchTerm))
-                .subscribe {
-                    currentSearchQuery = it.toString()
-                    preseneter?.textChanged(it)
-                }
+        preseneter?.init(currentSearchQuery)
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {

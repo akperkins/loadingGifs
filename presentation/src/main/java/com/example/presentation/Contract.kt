@@ -1,5 +1,9 @@
 package com.example.presentation
 
+import com.example.presentation.Contract.Presenter
+import com.example.presentation.Contract.View
+import io.reactivex.Observable
+
 /**
  * This interface is just responsible for housing the [View] and the [Presenter] interfaces in one
  * location, it is not meant to be implemented.
@@ -14,6 +18,16 @@ interface Contract {
          * Called to indicate the [List] of [Item] to display.
          */
         fun render(state: MainViewState)
+
+        /**
+         * Called when we want to initiate a new load of data.
+         */
+        fun loadingIntent(): Observable<Boolean>
+
+        /**
+         * Called to indicate that the user has changed their search term.
+         */
+        fun textChanged(): Observable<CharSequence?>
     }
 
     /**
@@ -27,14 +41,6 @@ interface Contract {
          */
         fun unbind()
 
-        /**
-         * Called when we want to initiate a new load of data.
-         */
-        fun loadData(searchQuery: String = "")
-
-        /**
-         * Called to indicate that the user has changed their search term.
-         */
-        fun textChanged(it: CharSequence?)
+        fun init(currentSearchQuery: String)
     }
 }
